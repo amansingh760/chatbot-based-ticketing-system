@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Web Page with Random ID</title>
+    <style>
+        .download-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 43vw;
+        }
+    .ticket{
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center ;">Your Ticket</h1>
+    <div class="ticket">
+        <p style="text-align: center;">Your Ticket ID:</p>
+        <p class="ticket-id" id="ticketId">Generating...</p>
+        
+    </div>
+
+    <!-- Button to download the web page -->
+    <button onclick="downloadWebPageWithRandomID()" class="download-btn">Download Page</button>
+
+    <script>
+        function downloadWebPageWithRandomID() {
+            // Generate a random number
+            const randomID = Math.floor(Math.random() * 10000);  // Random 4-digit number
+            
+            // Get the current HTML of the page
+            const pageHTML = document.documentElement.outerHTML;
+
+            // Create a Blob from the page HTML
+            const file = new Blob([pageHTML], { type: 'text/html' });
+
+            // Create an anchor element to trigger the download
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(file);
+            a.download = `webpage-${randomID}.pdf`;  // Include the random ID in the file name
+
+            // Programmatically click the anchor to trigger the download
+            a.click();
+
+            // Clean up the URL object
+            URL.revokeObjectURL(a.href);
+        }
+    
+        // Function to generate a random unique ID
+        function generateTicket() {
+            // Generate a unique ID (a combination of date and random number)
+            const timestamp = Date.now();  // Current timestamp in milliseconds
+            const randomNum = Math.floor(Math.random() * 10000);  // A random 4-digit number
+            const ticketId = 'TICKET-' + timestamp + '-' + randomNum;
+            
+            // Display the ticket ID
+            document.getElementById('ticketId').innerHTML = ticketId;
+        }
+
+        // Automatically generate a ticket when the page loads
+        window.onload = generateTicket;
+
+
+    </script>
+
+</body>
+</html>
