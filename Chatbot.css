@@ -1,0 +1,273 @@
+/* src/Chatbot.css */
+
+body {
+    background: linear-gradient(135deg, rgba(255, 153, 51, 0.5), rgba(218, 165, 32, 0.5), rgba(27, 79, 114, 0.5), rgba(205, 92, 92, 0.5));
+    background-size: contain; 
+    background-position: center; 
+    background-attachment: fixed; 
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+
+header {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 100%; 
+    padding: 20px; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    
+    background-color: rgba(255, 255, 255, 0.8); 
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+    z-index: 1000; 
+}
+
+/* Hero Section Styles */
+.hero {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.hero h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.hero h2 {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.hero .cta-button {
+    padding: 15px 30px;
+    border: 2px dotted #007bff;
+    border-radius: 25px;
+    background-color: #f0c040; 
+    color: #fff;
+    cursor: pointer;
+    font-size: 19px;
+    transition: background-color 0.3s;
+}
+
+.hero .cta-button:hover {
+    background-color: #d3a030; 
+}
+
+.chatbot-container {
+    width: 500px; 
+    border-radius: 12px; 
+    background: linear-gradient(45deg, #6f4c3e, #f5f0e1);
+
+
+    overflow: hidden; 
+    
+    /* Initial box-shadow */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition for shadow and scale */
+    
+    /* Positioning */
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+ 
+.chat-window {
+    display: flex;
+    flex-direction: column;
+    height: 450px; 
+}
+.messages {
+    flex-grow: 1;
+    padding: 15px; 
+    overflow-y: auto;
+}
+
+.messages div {   
+    margin: 10px 0;
+    padding: 8px 12px; 
+    border-radius: 20px; 
+    max-width: auto;
+    
+}
+.user {
+    text-align: right; 
+    background-color: #007bff; 
+    color: white; 
+}
+
+.bot {
+    text-align: left; 
+    background-color: #e9ecef; 
+    color: black; 
+}
+
+.typing {
+    font-style: italic;
+    color: gray;
+}
+
+.quick-replies button {
+    padding: 10px 15px; 
+    border:2px solid #007bff; 
+    border-radius: 25px; 
+    background-color: #f0c040; 
+    color: #fff; 
+    cursor: pointer; 
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; 
+}
+
+.quick-replies button:hover {
+    background-color: #d3a030; 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.quick-replies button:active {
+    transform: translateY(1px); /* Push down effect on click */
+    box-shadow: none; /* Remove shadow on click */
+}
+
+.quick-replies button:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Custom focus outline */
+}
+
+
+/* Ticket Booking Section */
+.ticket-booking {
+    width: 100%; /* Full width */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent */
+    border-radius: 12px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.ticket-booking h3 {
+    margin: 10px 0;
+}
+
+.ticket-booking .category {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.category-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+
+/* Chat Icon Styles */
+/* Chatbot.css */
+
+/* General positioning and z-index for the chat icon */
+.chat-icon {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    cursor: pointer;
+    z-index: 1000; /* Ensure it stays above other content */
+    animation: pop-up 2s infinite; /* Add pop-up animation */
+}
+
+/* Animation for popping up effect */
+@keyframes pop-up {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Chat Bubble Styles */
+.chat-bubble {
+    position: relative; /* Set position to relative for the tail positioning */
+    background-color: #007bff; /* Background color of the bubble */
+    border-radius: 25px; /* Rounded corners */
+    padding: 10px; /* Padding for the bubble */
+    color: white; /* Text color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; /* Width of the bubble */
+    height: 60px; /* Height of the bubble */
+    transition: transform 0.2s; /* Animation for hover effect */
+    animation: dance 1s infinite; /* Add dance animation */
+}
+
+/* Tail Effect */
+.chat-bubble::after {
+    content: '';
+    position: absolute; /* Position it relative to the bubble */
+    bottom: 100%; /* Position it above the bubble */
+    left: 50%; /* Center horizontally */
+    margin-left: -8px; /* Adjust to center the tail */
+    border-width: 8px; /* Size of the triangle */
+    border-style: solid;
+    border-color: transparent transparent #007bff transparent; /* Triangle color */
+    /* Adjust the triangle size and position as needed */
+}
+
+/* Animation for dancing effect */
+@keyframes dance {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(20deg); }
+}
+
+/* For the chatbot icon image */
+.chat-icon img {
+    width: 150px; /* Adjust width as needed */
+    height: 150px; /* Adjust height as needed */
+    cursor: pointer; /* Change cursor on hover */
+    border-radius: 50%; /* Optional: round image */
+}
+
+
+/* for logo at the left uppermost corner of the webpage */
+.logo {
+    position: absolute; /* Position it absolutely within its parent */
+    top: 20px; /* Distance from the top */
+    left: 50px; /* Distance from the left */
+    width: 25px; /* Set the width of the logo */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Chat message above the icon */
+
+/* Help Message Styles */
+.help-message {
+    position: absolute;
+    bottom: 100%; /* Position the message above the icon */
+    right: 50%; /* Center the message */
+    transform: translateX(50%); /* Center alignment */
+    background-color: #f0f0f0; /* Background color */
+    color: #007bff; /* Text color */
+    font-family: 'Arial', sans-serif; /* Font family */
+    font-size: 14px; /* Font size */
+    padding: 5px 10px; /* Padding for the message */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    animation: message-pop 2s infinite; /* Add pop animation */
+    z-index: 1001; /* Ensure the message stays above the icon */
+}
+
+/* Animation for the help message */
+@keyframes message-pop {
+    0%, 100% { transform: translateX(50%) scale(1); }
+    50% { transform: translateX(50%) scale(1.1); }
+}
