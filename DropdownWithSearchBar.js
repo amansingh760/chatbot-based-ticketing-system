@@ -11,7 +11,7 @@ const DropdownWithSearchBar = ({ onSearch }) => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/state-data')
+        fetch('https://ticketbooking-site.vercel.app/state-data')
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -30,7 +30,7 @@ const DropdownWithSearchBar = ({ onSearch }) => {
     const handleSubmit = async (event) => {
         event.preventDefault(); // Prevent the default form submission behavior
         console.log('Selected option:', selectedOption);
-        const response = await fetch('http://localhost:5000/get-museum-data', {
+        const response = await fetch('https://ticketbooking-site.vercel.app/get-museum-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -115,3 +115,4 @@ const DropdownWithSearchBar = ({ onSearch }) => {
 };
 
 export default DropdownWithSearchBar;
+
